@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="navFragment" id="page-topbar" class="fixed">
+    <div class="navbar-header container">
+        <div class="d-flex">
+
+            <div class="navbar-brand-box d-flex align-items-center">
+
+                <h1 class="m-0" style="color: #2e52ac">
+                    SportEvent
+                </h1>
+
+            </div>
+
+        </div>
+
+        <div class="d-flex align-items-center h-100">
+
+            <div class="topnav">
+
+                <nav class="navbar navbar-light navbar-expand-xl topnav-menu">
+                    <div class="collapse navbar-collapse active" id="topnav-menu-content">
+                        <ul class="navbar-nav active">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#"><span>Mua Vé Sự Kiện</span></a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#">
+                                    <span>Dịch vụ</span> <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="https://ticket.irace.vn/?utm_source=Ticket&amp;utm_medium=Menu&amp;utm_campaign=Menu" class="dropdown-item">Hình sự kiện</a>
+                                    <a href="https://ticket.irace.vn/?utm_source=Ticket&amp;utm_medium=Menu&amp;utm_campaign=Menu" class="dropdown-item">Tìm môn thể thao</a>
+                                    <a href="https://ticket.irace.vn/?utm_source=Ticket&amp;utm_medium=Menu&amp;utm_campaign=Menu" class="dropdown-item">Tìm vận động viên</a>
+                                    <a href="https://ticket.irace.vn/?utm_source=Ticket&amp;utm_medium=Menu&amp;utm_campaign=Menu" class="dropdown-item">Nạp tiền</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#"><span>Ban Tổ Chức</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><span>Liên Hệ</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+
+
+            <div class="dropdown d-inline-block language-switch d-none">
+
+                <button type="button" class="btn header-item noti-icon" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://ticket.irace.vn/assets/images/flags/vi.png" alt="Header Language" width="23" height="16">
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="https://ticket.irace.vn/api/lang/en" class="dropdown-item notify-item language" data-lang="eng">
+                        <img src="https://ticket.irace.vn/assets/images/flags/en.png" alt="user-image" class="me-1" width="23" height="16"> <span class="align-middle">English</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="dropdown d-inline-block language-switch">
+
+                <button type="button" class="btn header-item noti-icon btn-languge" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://ticket.irace.vn/assets/images/flags/vi.png" alt="Header Language" width="23" height="16">
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="https://ticket.irace.vn/api/lang/en" class="dropdown-item notify-item language" data-lang="eng">
+                        <img src="https://ticket.irace.vn/assets/images/flags/en.png" alt="user-image" class="me-1" width="23" height="16"> <span class="align-middle">English</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-16 d-block d-xl-none header-item" data-bs-toggle="collapse" id="horimenu-btn" data-bs-target="#topnav-menu-content">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <div class="wrap-display-desktop wrap-btn-login">
+
+
+                <div class="dropdown d-inline-block">
+                    <button class="btn header-item user text-start d-flex align-items-center">
+                        <a class="btn btn-primary" th:href="@{/login}">Đăng nhập</a>
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</header>
+</body>
+</html>
