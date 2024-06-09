@@ -553,7 +553,7 @@ values ('6030', N'Vòng chung kết trực tiếp lần 1', '2024-07-20', N'Trun
 select * from NoiDungThiDau
 --------------------------------------------------------------
 INSERT INTO NguoiDung (MaKh, TenKh, taiKhoan, matKhau, SDT, DiaChi, GioiTinh, vaiTro)
-VALUES (8001, N'Phan Tuan Minh', 'minh', '123', '0909678411', N'Quận 01, TP.HCM', 0, 'admin'),
+VALUES (8001, N'Phan Tuan Minh', 'minh', '$2a$10$cRxxj5bEkdoOdxGbU3VRGuYozJ.6H5JAS6Vd5ADrR5tf5Wde5qNVK', '0909678411', N'Quận 01, TP.HCM', 0, 'admin'),
        (8002, N'Trần Hồng Thanh', 'tran.thanh', 'password123', '0671345124', N'Quận 09, TP.HCM', 1, 'user'),
        (8003, N'Phạm Chí Hải', 'pham.hai', 'password123', '0878565133', N'Quận Bình Tân, TP.HCM', 1, 'user'),
        (8004, N'Phạm Minh Phương', 'pham.phuong', 'password123', '0263435142', N'Quận 04, TP.HCM', 0, 'user'),
