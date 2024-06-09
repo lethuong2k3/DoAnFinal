@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security6">
+<body>
+<div th:fragment="sidebarFragment" class="sidebar pe-2 pb-3">
+    <nav class="navbar bg-light navbar-light">
+        <a th:href="@{/admin/tong-quan}" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+            </div>
+            <div class="ms-3">
+                <h6 sec:authentication="name" class="mb-0"></h6>
+                <span sec:authentication="principal.authorities"></span>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a th:href="@{/admin/tong-quan}" class="nav-item nav-link" th:classappend="${activePage == 'dashboard' ? 'active' : ''}"><i class="bi bi-bar-chart-line-fill me-2"></i>Thống kê</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" th:classappend="${activePageDrop != null ? 'active' : ''}" data-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Quản lý danh mục</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="button.html" class="dropdown-item">Hình ảnh</a>
+                    <a href="typography.html" class="dropdown-item">Video</a>
+                    <a th:href="@{/admin/khoa-hoc}" class="dropdown-item" th:classappend="${activePageDrop == 'course' ? 'active' : ''}">Khóa học</a>
+                </div>
+            </div>
+            <a href="widget.html" class="nav-item nav-link"><i class="bi bi-person-fill me-2"></i>Khách hàng đăng ký</a>
+            <a href="table.html" class="nav-item nav-link"><i class="bi bi-question-circle-fill me-2"></i>Câu hỏi thường gặp</a>
+            <a href="chart.html" class="nav-item nav-link"><i class="bi bi-people-fill me-2"></i>Về chúng tôi</a>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

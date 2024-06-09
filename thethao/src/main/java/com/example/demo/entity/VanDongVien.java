@@ -1,0 +1,40 @@
+package com.example.demo.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "VanDongVien")
+public class VanDongVien {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long maVDV;
+
+    @Column(name = "hoten", length = 50, nullable = false)
+    private String hoTen;
+
+    @Column(name = "ngsinh", nullable = false)
+    private Date ngSinh;
+
+    @Column(name = "gioitinh", nullable = false)
+    private Integer gioiTinh;
+
+    @Column(name = "diachi", length = 255, nullable = false)
+    private String diaChi;
+
+    @Column(name = "sdt", length = 20, nullable = false)
+    private String sdt;
+
+    @ManyToOne
+    @JoinColumn(name = "madoi", nullable = false)
+    private DoiThiDau doiThiDau;
+}

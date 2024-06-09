@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen</title>
+    <link rel="stylesheet" th:href="@{/user/css/StyleUser.css}">
+
+</head>
+
+<body>
+
+<!-- START:: header -->
+    <header>
+        <h2 class="logo">Sport<span>Event.</span></h2>
+
+        <div class="searchBox">
+            <input class="searchInput" type="text" name="" placeholder="Search something">
+            <button class="searchButton" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                <g clip-path="url(#clip0_2_17)">
+                    <g filter="url(#filter0_d_2_17)">
+                        <path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges"></path>
+                    </g>
+                </g>
+                <defs>
+                    <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite in2="hardAlpha" operator="out"></feComposite>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17" result="shape"></feBlend>
+                    </filter>
+                    <clipPath id="clip0_2_17">
+                        <rect width="28.0702" height="28.0702" fill="white" transform="translate(0.403503 0.526367)"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+            </button>
+        </div>
+
+
+        <nav class="navigation">
+            <a href="#home">Trang chủ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#event">Sự kiện</a>
+            <a href="#contact">Liên hệ</a>
+            <button class="btnLogin-popup">Đăng nhập</button>
+        </nav>
+    </header>
+<!-- END:: header -->
+
+
+
+<!-- START:: login/ register -->
+    <section class="mid">
+        <div class="wrapper">
+            <span class="icon-close"><ion-icon name="close-outline"></ion-icon>
+            </span>
+
+                <!-- login -->
+            <div class="form-box login">
+                <h2>Log in</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                </form>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </div>
+
+            <!-- forgot password? -->
+            <div class="form-box forgot">
+                <h2>Forgot Password</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                </form>
+                <button type="submit" class="btn">Send</button>
+            </div>
+            
+                <!-- register -->
+            <div class="form-box register">
+                <h2>Registration</h2>
+                <form action="#">
+                    <div class="input-box"> 
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <input type="text" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="bag-check-outline"></ion-icon></span>
+                        <input type="password" required>
+                        <label>Confirm Password</label>
+                    </div>
+                </form>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">I agree to the Term & Conditions</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<!-- END:: login/ register -->
+
+
+
+
+<!-- START:: main -->
+
+    <!-- home -->
+    <section class="home" id="home">
+        <div class="box-left">
+            <h2>Sport<span>Event.</span></h2>
+            <br>
+            <h3>Trải nghiệm khó quên!</h3>
+            <p>Bạn đam mê thể thao và luôn muốn cập nhật những trận đấu đỉnh cao? Hãy đến với SportEvent, nơi bạn có thể dễ dàng đặt vé xem các sự kiện thể thao yêu thích một cách nhanh chóng và tiện lợi.<p>
+            <button><span>REGISTER</span></button>
+        </div>
+        <div class="box-right">
+            <!-- <img src="tennis.jpg" alt=""> -->
+        </div>
+    </section>
+
+
+    <!-- about -->
+    <section class="about" id="about">
+        <h2 class="heading">about us</h2>
+        <div class="row">
+            <div class="image">
+                <img src="Pics/tennis.jpg" alt="">
+            </div>
+
+            <div class="content">
+                <h3>What make our coffe special?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequatur et sed. Saepe voluptas quam inventore laboriosam consequatur amet, labore voluptate consectetur tempora cupiditate rerum id rem, temporibus delectus quae.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima unde cumque nisi quis facere obcaecati quo ullam quae! Dignissimos ducimus animi atque error corrupti magni reiciendis inventore officia doloribus cumque.</p>
+                <div class="btn-conteiner">
+                    <a class="btn-content" href="#">
+                        <span class="btn-title">LEARN MORE</span>
+                        <span class="icon-arrow">
+                        <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                            <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                            <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
+                            </g>
+                        </svg>
+                        </span> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- event -->
+    <section class="event" id="event">
+        <h2 class="heading">Event</h2>
+        <div class="cards">
+            <div class="card">
+            <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                <div class="card-content">
+                    <div class="card-top">
+                    <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                    <div class="card-user">
+                        <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                        <div class="card-user-info">
+                            <div class="card-user-top">
+                                <h4 class="card-user-name">Tam Tran</h4>
+                                <ion-icon name="checkmark-circle"><ion-icon>
+                            </div>
+                            <div class="card-user-mop">Doanh nghiệp</div>
+                        </div>
+                    </div>
+                    <div class="card-top-infor">
+                        <h4 class="card-time">
+                            <ion-icon name="hourglass-outline"></ion-icon>
+                            <span>4/6/2024 - 31/12/2024</span>
+                        </h4>
+                    </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-register">
+                            <ion-icon name="qr-code-outline"></ion-icon>
+                            <span>Đăng ký</span>
+                        </div>
+                        <div class="card-joined">430 Tham gia</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                    <div class="card-content">
+                        <div class="card-top">
+                        <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                        <div class="card-user">
+                            <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                            <div class="card-user-info">
+                                <div class="card-user-top">
+                                    <h4 class="card-user-name">Tam Tran</h4>
+                                    <ion-icon name="checkmark-circle"><ion-icon>
+                                </div>
+                                <div class="card-user-mop">Doanh nghiệp</div>
+                            </div>
+                        </div>
+                        <div class="card-top-infor">
+                            <h4 class="card-time">
+                                <ion-icon name="hourglass-outline"></ion-icon>
+                                <span>4/6/2024 - 31/12/2024</span>
+                            </h4>
+                        </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-register">
+                                <ion-icon name="qr-code-outline"></ion-icon>
+                                <span>Đăng ký</span>
+                            </div>
+                            <div class="card-joined">430 Tham gia</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                        <div class="card-content">
+                            <div class="card-top">
+                            <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                            <div class="card-user">
+                                <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                                <div class="card-user-info">
+                                    <div class="card-user-top">
+                                        <h4 class="card-user-name">Tam Tran</h4>
+                                        <ion-icon name="checkmark-circle"><ion-icon>
+                                    </div>
+                                    <div class="card-user-mop">Doanh nghiệp</div>
+                                </div>
+                            </div>
+                            <div class="card-top-infor">
+                                <h4 class="card-time">
+                                    <ion-icon name="hourglass-outline"></ion-icon>
+                                    <span>4/6/2024 - 31/12/2024</span>
+                                </h4>
+                            </div>
+                            </div>
+                            <div class="card-bottom">
+                                <div class="card-register">
+                                    <ion-icon name="qr-code-outline"></ion-icon>
+                                    <span>Đăng ký</span>
+                                </div>
+                                <div class="card-joined">430 Tham gia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                            <div class="card-content">
+                                <div class="card-top">
+                                <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                                <div class="card-user">
+                                    <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                                    <div class="card-user-info">
+                                        <div class="card-user-top">
+                                            <h4 class="card-user-name">Tam Tran</h4>
+                                            <ion-icon name="checkmark-circle"><ion-icon>
+                                        </div>
+                                        <div class="card-user-mop">Doanh nghiệp</div>
+                                    </div>
+                                </div>
+                                <div class="card-top-infor">
+                                    <h4 class="card-time">
+                                        <ion-icon name="hourglass-outline"></ion-icon>
+                                        <span>4/6/2024 - 31/12/2024</span>
+                                    </h4>
+                                </div>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="card-register">
+                                        <ion-icon name="qr-code-outline"></ion-icon>
+                                        <span>Đăng ký</span>
+                                    </div>
+                                    <div class="card-joined">430 Tham gia</div>
+                                </div>
+                            </div>
+                        </div>
+            
+        </div>
+        <div class="cards">
+            <div class="card">
+            <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                <div class="card-content">
+                    <div class="card-top">
+                    <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                    <div class="card-user">
+                        <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                        <div class="card-user-info">
+                            <div class="card-user-top">
+                                <h4 class="card-user-name">Tam Tran</h4>
+                                <ion-icon name="checkmark-circle"><ion-icon>
+                            </div>
+                            <div class="card-user-mop">Doanh nghiệp</div>
+                        </div>
+                    </div>
+                    <div class="card-top-infor">
+                        <h4 class="card-time">
+                            <ion-icon name="hourglass-outline"></ion-icon>
+                            <span>4/6/2024 - 31/12/2024</span>
+                        </h4>
+                    </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-register">
+                            <ion-icon name="qr-code-outline"></ion-icon>
+                            <span>Đăng ký</span>
+                        </div>
+                        <div class="card-joined">430 Tham gia</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                    <div class="card-content">
+                        <div class="card-top">
+                        <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                        <div class="card-user">
+                            <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                            <div class="card-user-info">
+                                <div class="card-user-top">
+                                    <h4 class="card-user-name">Tam Tran</h4>
+                                    <ion-icon name="checkmark-circle"><ion-icon>
+                                </div>
+                                <div class="card-user-mop">Doanh nghiệp</div>
+                            </div>
+                        </div>
+                        <div class="card-top-infor">
+                            <h4 class="card-time">
+                                <ion-icon name="hourglass-outline"></ion-icon>
+                                <span>4/6/2024 - 31/12/2024</span>
+                            </h4>
+                        </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-register">
+                                <ion-icon name="qr-code-outline"></ion-icon>
+                                <span>Đăng ký</span>
+                            </div>
+                            <div class="card-joined">430 Tham gia</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                        <div class="card-content">
+                            <div class="card-top">
+                            <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                            <div class="card-user">
+                                <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                                <div class="card-user-info">
+                                    <div class="card-user-top">
+                                        <h4 class="card-user-name">Tam Tran</h4>
+                                        <ion-icon name="checkmark-circle"><ion-icon>
+                                    </div>
+                                    <div class="card-user-mop">Doanh nghiệp</div>
+                                </div>
+                            </div>
+                            <div class="card-top-infor">
+                                <h4 class="card-time">
+                                    <ion-icon name="hourglass-outline"></ion-icon>
+                                    <span>4/6/2024 - 31/12/2024</span>
+                                </h4>
+                            </div>
+                            </div>
+                            <div class="card-bottom">
+                                <div class="card-register">
+                                    <ion-icon name="qr-code-outline"></ion-icon>
+                                    <span>Đăng ký</span>
+                                </div>
+                                <div class="card-joined">430 Tham gia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="Pics/SK1.jpg" alt="" class="card-image"/>
+                            <div class="card-content">
+                                <div class="card-top">
+                                <h3 class="card-title">Khám phá vẻ đẹp ba miền qua từng bước chạy</h3>
+                                <div class="card-user">
+                                    <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" class="card-user-avatar"/>
+                                    <div class="card-user-info">
+                                        <div class="card-user-top">
+                                            <h4 class="card-user-name">Tam Tran</h4>
+                                            <ion-icon name="checkmark-circle"><ion-icon>
+                                        </div>
+                                        <div class="card-user-mop">Doanh nghiệp</div>
+                                    </div>
+                                </div>
+                                <div class="card-top-infor">
+                                    <h4 class="card-time">
+                                        <ion-icon name="hourglass-outline"></ion-icon>
+                                        <span>4/6/2024 - 31/12/2024</span>
+                                    </h4>
+                                </div>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="card-register">
+                                        <ion-icon name="qr-code-outline"></ion-icon>
+                                        <span>Đăng ký</span>
+                                    </div>
+                                    <div class="card-joined">430 Tham gia</div>
+                                </div>
+                            </div>
+                        </div>
+            
+        </div>
+        <div class="btn-conteiner">
+            <a class="btn-content" href="#">
+              <span class="btn-title">MORE</span>
+              <span class="icon-arrow">
+                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                    <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                    <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
+                  </g>
+                </svg>
+              </span> 
+            </a>
+          </div>
+    </section>
+
+
+
+
+    <!-- tin tuc -->
+
+    <!-- lien he -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact us</h2>
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field field">
+                    <input type="text" placeholder="Full Name" id="name" class="item" autocomplete="off">
+                </div>
+                <div class="input-field field">
+                    <input type="text" placeholder="Email Address" id="email" class="item" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field field">
+                    <input type="text" placeholder="Phone Number" id="phone" class="item" autocomplete="off">
+                </div>
+                <div class="input-field field">
+                    <input type="text" placeholder="Subject" id="subject" class="item" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="textarea-field field">
+                <textarea  name="" id="message" cols="30" rows="10" class="item" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit">Send Massage</button>
+        </form>
+    </section>
+
+
+<!-- START:: footer -->
+<footer>
+
+</footer>
+<!-- END:: footer -->
+
+    <script th:src="@{/user/js/script.js}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

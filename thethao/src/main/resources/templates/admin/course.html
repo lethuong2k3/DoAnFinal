@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{admin/fragments/head :: headFragment (pageTitle='Trang khóa học')}">
+</head>
+<body ng-app="course" ng-controller="course-ctrl">
+<div class="container-xxl position-relative bg-white d-flex p-0">
+    <div th:replace="~{admin/fragments/loading.html :: spinnerFragment}"></div>
+    <div th:replace="~{admin/fragments/sidebar.html :: sidebarFragment}"></div>
+    <div class="content">
+        <nav th:replace="~{admin/fragments/nav.html :: navFragment}"></nav>
+        <div class="container-fluid pt-4 px-4">
+            <div class="row m-0 p-4" style="background-color: #F3F6F9; align-items: center">
+                <div class="col-sm-6">
+                    <h3>Quản lý khóa học</h3>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <button type="button" class="btn btn-danger m-2"><i class="fas fa-minus"></i> Xóa tất cả</button>
+                    <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#courseModal"><i class="fas fa-plus"></i> Thêm mới</button>
+                </div>
+            </div>
+            <div class="bg-light rounded h-100 p-4">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col"><input class="form-check-input" type="checkbox" id="selectAll"></th>
+                            <th scope="col">Tên khóa học</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Hành động</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox" id="checkbox2" name="options[]" value="1"></td>
+                            <td>Bơi ếch</td>
+                            <td>Hoạt động</td>
+                            <td>
+                                <button type="button" class="btn"><i class="icon-pen fas fa-pen"></i></button>
+                                <button type="button" class="btn"><i class="icon-trash fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="clearfix">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="~{admin/fragments/footer.html :: footerFragment}"></footer>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+<div class="modal" id="courseModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm mới khóa học</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-course-tab" data-toggle="tab"
+                                data-target="#nav-course" type="button" role="tab" aria-controls="nav-course"
+                                aria-selected="true">Khóa học</button>
+                        <button class="nav-link" id="nav-picture-tab" data-toggle="tab"
+                                data-target="#nav-picture" type="button" role="tab"
+                                aria-controls="nav-picture" aria-selected="false">Hình ảnh</button>
+                        <button class="nav-link" id="nav-video-tab" data-toggle="tab"
+                                data-target="#nav-video" type="button" role="tab"
+                                aria-controls="nav-video" aria-selected="false">Video</button>
+                    </div>
+                </nav>
+                <form method="post" class="tab-content pt-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-course" role="tabpanel" aria-labelledby="nav-course-tab">
+                        <div class="form-floating mb-3 input-row">
+                            <input type="text" class="form-control" id="courseName" placeholder="Tên khóa học">
+                            <label for="courseName">Tên khóa học</label>
+                            <small></small>
+                        </div>
+                        <div class="form-floating mb-3 input-row">
+                            <textarea class="form-control" id="courseComment" style="height: 100px;"></textarea>
+                                    <label for="courseComment">Mô tả khóa học</label>
+                            <small></small>
+                        </div>
+                        <fieldset>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Tiêu đề học phí</th>
+                                    <th scope="col">Đơn giá</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-if="fees.length === 0">
+                                    <td colspan="3" class="text-center">Không có học phí nào cả, vui lòng thêm học phí!</td>
+                                </tr>
+                                <tr ng-repeat="fee in fees">
+                                    <td>{{fee.title}}</td>
+                                    <td>{{fee.price | number:'0':'symbol':'short'}}₫</td>
+                                    <td><button ng-click="removeFee(fee)" type="button" class="btn-close" aria-label="Close"></button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <button type="button" data-toggle="modal" data-target="#feeModal" data-dismiss="modal" class="btn btn-outline-primary w-100" ><i class="fas fa-plus"></i> Thêm học phí</button>
+                    </div>
+                    <div class="tab-pane fade" id="nav-picture" role="tabpanel" aria-labelledby="nav-picture-tab">
+                        <div class="mb-3">
+                                <input type="file" id="image" style="display: none" onchange="image_select()" multiple />
+                                <label class="btn btn-outline-primary m-2" for="image"><i class="fas fa-upload"></i> Tải ảnh lên</label>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-start" id="container">
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
+                        <div class="mb-3">
+                            <input type="file" id="video" style="display: none" onchange="video_select()" multiple />
+                            <label class="btn btn-outline-primary m-2" for="video"><i class="fas fa-upload"></i> Tải video lên</label>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-start" id="lst-video">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="addCourse()" type="button" class="btn btn-primary">Thêm</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="feeModal" data-backdrop="static">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Học phí</h5>
+                <button type="button" class="btn-close" ng-click="removeErrorFee()" data-dismiss="modal" data-toggle="modal" data-target="#courseModal"  aria-label="Close"></button>
+            </div><div class="container"></div>
+            <div class="modal-body">
+                <form id="formFee">
+                    <div class="form-floating mb-4 input-row">
+                        <input type="text" class="form-control" id="feeTitle" autocomplete="off"
+                               placeholder="Tên khóa học">
+                        <label for="feeTitle">Tiêu đề học phí</label>
+                        <small></small>
+                    </div>
+                    <div class="form-floating mb-4 input__note">
+                        <textarea class="form-control" id="feeComment" style="height: 100px;" autocomplete="off"></textarea>
+                        <label for="feeComment">Mô tả học phí</label>
+                    </div>
+                    <div class="input-group mb-4 input-row">
+                        <input type="number" id="feePrice" class="form-control" placeholder="Tiền học phí"
+                               aria-label="Tiền học phí" autocomplete="off">
+                        <span class="input-group-text" id="basic-addon2">VNĐ</span>
+                        <small></small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="addFee()" class="btn btn-primary">Thêm</button>
+                <button type="button" ng-click="removeErrorFee()" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#courseModal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="~{admin/index.html :: scriptFragment}"></th:block>
+<script th:src="@{/admin/js/course.js}"></script>
+</body>
+</html>
