@@ -22,4 +22,10 @@ public class ViewController {
         model.addAttribute("activePageDrop", "course");
         return "/admin/course";
     }
+
+
+    @GetMapping("/404")
+    public String error() {
+        return "/user/404";
+    }
 }

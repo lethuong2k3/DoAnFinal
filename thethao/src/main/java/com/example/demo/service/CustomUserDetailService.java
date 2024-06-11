@@ -8,7 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,16 +20,16 @@ public class CustomUserDetailService implements UserDetailsService {
     @Autowired
     private NguoiDungService userService;
 
-    private PasswordEncoder passwordEncoder;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         NguoiDung users = userService.findByTaiKhoan(username);
         if (users == null) {
-            throw new UsernameNotFoundException("Not found username");
+            throw new UsernameNotFoundException("Sai tài khoản hoặc mật khẩu");
         }
         Collection<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
         grantedAuthoritySet.add(new SimpleGrantedAuthority(users.getVaiTro()));
         return new CustomUserDetails(users, grantedAuthoritySet);
     }
+
+
 }

@@ -9,28 +9,47 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    @Autowired
-    private CustomUserDetailService customUserDetailService;
 
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+
     @Bean
-    SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth -> auth
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+       httpSecurity.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth -> auth
                 .requestMatchers("/*").permitAll()
                 .requestMatchers("/admin/**").hasAuthority("admin")
                 .anyRequest().authenticated()).formLogin(login -> login.loginPage("/login").loginProcessingUrl("/login")
                 .usernameParameter("taiKhoan").passwordParameter("matKhau")
-                .defaultSuccessUrl("/admin/tong-quan", true)).logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"))
-                .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"));
+                .successHandler(customAuthenticationSuccessHandler())).logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"))
+                .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login")).exceptionHandling(handling -> handling.accessDeniedHandler(accessDeniedHandler()));
         return httpSecurity.build();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler customAuthenticationSuccessHandler() {
+        return (request, response, authentication) -> {
+            String role = authentication.getAuthorities().iterator().next().getAuthority();
+            if ("admin".equals(role)) {
+                response.sendRedirect("/admin/tong-quan");
+            } else {
+                response.sendRedirect("/");
+            }
+        };
+    }
+
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+        return (request, response, accessDeniedException) -> response.sendRedirect("/404");
     }
 
     @Bean

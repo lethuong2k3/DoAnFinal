@@ -83,16 +83,31 @@
                 <i class="fa fa-fw fa-bars"></i>
             </button>
 
-            <div class="wrap-display-desktop wrap-btn-login">
-
-
-                <div class="dropdown d-inline-block">
-                    <button class="btn header-item user text-start d-flex align-items-center">
-                        <a class="btn btn-primary" th:href="@{/login}">Đăng nhập</a>
-                    </button>
+            <div th:if="${not #authorization.expression('isAuthenticated()')}">
+                <div class="wrap-display-desktop wrap-btn-login">
+                    <div class="dropdown d-inline-block">
+                        <button class="btn header-item user text-start d-flex align-items-center">
+                            <a class="btn btn-primary" th:href="@{/login}">Đăng nhập</a>
+                        </button>
+                    </div>
                 </div>
+            </div>
 
-
+            <div th:if="${#authorization.expression('isAuthenticated()')}">
+                <div class="d-flex justify-content-end">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none" id="dropdownProfile" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://ticket.irace.vn/assets/images/user.png" alt="Avatar" class="avatar me-2">
+                            <span th:text="${#authentication.name}">Username</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownProfile">
+                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="#">Danh sách vé</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         </div>
