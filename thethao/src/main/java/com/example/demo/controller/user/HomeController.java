@@ -23,8 +23,8 @@ public class HomeController {
     public String view (Model model,
                         @RequestParam(value = "name", required = false) String name,
                         @RequestParam(value = "location", required = false) String location,
-                        @RequestParam(value = "startDate", required = false) @DateTimeFormat(pattern = "MM-dd-yyyy") Date startDate,
-                        @RequestParam(value = "endDate", required = false) @DateTimeFormat(pattern = "MM-dd-yyyy") Date endDate
+                        @RequestParam(value = "startDate", required = false) @DateTimeFormat(pattern = "MM/dd/yyyy") Date startDate,
+                        @RequestParam(value = "endDate", required = false) @DateTimeFormat(pattern = "MM/dd/yyyy") Date endDate
                         ) {
         model.addAttribute("listBTC", btcService.findAll());
         model.addAttribute("listSKTT", skttService.getAllSearchAndFilter(name, location, startDate, endDate));

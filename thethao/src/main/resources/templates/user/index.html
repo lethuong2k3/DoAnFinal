@@ -77,55 +77,60 @@
 
                 <div class="card container-filter-event">
                     <div class="card-body">
-                        <div class="row">
+                        <form th:action="@{/}" method="get">
+                            <div class="row">
+                                <div class="item-filter col-12 col-md-3 container-input-search">
+                                    <input class="form-control" name="name" placeholder="Nhập tên sự kiện" value="">
+                                    <i class="bx bx-search-alt-2"></i>
+                                </div>
 
-                            <div class="item-filter col-12 col-md-3 container-input-search">
-                                <input class="form-control" name="name" placeholder="Nhập tên sự kiện" value="">
-                                <i class="bx bx-search-alt-2"></i>
-                            </div>
-
-                            <div class="item-filter col-12 col-md-3">
-                                <div class="dropdown bootstrap-select form-select">
-                                    <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light"
-                                            data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox"
-                                            aria-expanded="false" title="- Tất cả địa điểm -" data-id="filter-location">
-                                        <!-- Placeholder text for the dropdown -->
-                                        <div class="filter-option">
-                                            <div class="filter-option-inner">
-                                                <div class="filter-option-inner-inner">- Tất cả địa điểm -</div>
+                                <div class="item-filter col-12 col-md-3">
+                                    <div class="dropdown bootstrap-select form-select">
+                                        <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light"
+                                                data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox"
+                                                aria-expanded="false" title="- Tất cả địa điểm -" data-id="filter-location">
+                                            <!-- Placeholder text for the dropdown -->
+                                            <div class="filter-option">
+                                                <div class="filter-option-inner">
+                                                    <div class="filter-option-inner-inner">- Tất cả địa điểm -</div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <!-- Search box within the dropdown -->
-                                        <div class="bs-searchbox">
-                                            <input type="search" class="form-control search-input" autocomplete="off" placeholder="Chọn địa điểm"
-                                                   role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
-                                        </div>
-                                        <!-- Dynamic list options -->
-                                        <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
-                                            <ul class="dropdown-menu inner show" role="presentation">
-                                                <!-- Thymeleaf loop to dynamically generate options -->
-                                                <li th:each="btc : ${listBTC}" role="option" th:data-value="${btc.tinhThanh}">
-                                                    <!-- Option text -->
-                                                    <a class="dropdown-item" th:text="${btc.tinhThanh}"></a>
-                                                </li>
-                                            </ul>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <!-- Search box within the dropdown -->
+                                            <div class="bs-searchbox">
+                                                <input name="location" type="search" class="form-control search-input" autocomplete="off" placeholder="Chọn địa điểm"
+                                                       role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
+                                            </div>
+                                            <!-- Dynamic list options -->
+                                            <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                                                <ul class="dropdown-menu inner show" role="presentation">
+                                                    <!-- Thymeleaf loop to dynamically generate options -->
+                                                    <li th:each="btc : ${listBTC}" role="option" th:data-value="${btc.tinhThanh}">
+                                                        <!-- Option text -->
+                                                        <a class="dropdown-item" th:text="${btc.tinhThanh}"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="item-filter col-12 col-md-3">
+                                    <input class="form-control" id="datepicker1" name="startDate" placeholder="- Thời gian bắt đầu -" width="250" />
+                                </div>
+
+                                <div class="item-filter col-12 col-md-3">
+                                    <input class="form-control" id="datepicker2" name="endDate" placeholder="- Thời gian kết thúc -" width="250" />
+                                </div>
                             </div>
-
-                            <div class="item-filter col-12 col-md-3">
-                                <input class="form-control" id="datepicker1" placeholder="- Thời gian bắt đầu -" width="250" />
+                            <!-- Add submit button -->
+                            <div class="row">
+                                <div class="item-filter col-12">
+                                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                                </div>
                             </div>
-
-                            <div class="item-filter col-12 col-md-3">
-                                <input class="form-control" id="datepicker2" placeholder="- Thời gian kết thúc -" width="250" />
-                            </div>
-
-
-                        </div>
+                        </form>
                     </div>
 
                 </div>
@@ -184,21 +189,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-
-
-                <div class="row">
-
-                    <ul class="pagination custom-pagination justify-content-end">
-
-                        <li class="page-item active ms-2">
-                            <a class="page-link" href="https://ticket.irace.vn?fbclid=IwZXh0bgNhZW0CMTAAAR3UQA8zIlJXZ_ugfDLYnOru1a5uM09Hc9LXWc47Smw1dbq6BHqb0i6TSyQ_aem_AV4TnTSRM-6koUQ2MAcxy9BuitFxNuhR1jbYCurrYNZZsEiOfG2yvhHaFLgDUXjeR_zWIpMr6EtuEGMjXB0tLlv5"><i class="bx bx-chevrons-left"></i> Trang trước</a>
-                        </li>
-
-
-                    </ul>
 
                 </div>
 
@@ -689,6 +679,14 @@
                 // Show or hide options based on input match
                 $(this).toggle(optionText.includes(searchString));
             });
+        });
+
+        // Function to set input value to selected location
+        $(".dropdown-item").on("click", function () {
+            var selectedLocation = $(this).text();
+            var dropdown = $(this).closest(".dropdown");
+            dropdown.find(".search-input").val(selectedLocation);
+            dropdown.find(".btn").text(selectedLocation); // Update the dropdown button text
         });
     });
     $('#datepicker1').datepicker({
