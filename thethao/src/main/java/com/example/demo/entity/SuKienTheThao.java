@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,10 +23,10 @@ public class SuKienTheThao {
     private String tenSuKien;
 
     @Column(name = "ngbatdau", nullable = false)
-    private java.time.LocalDateTime ngBatDau;
+    private Date ngBatDau;
 
     @Column(name = "ngketthuc", nullable = false)
-    private java.time.LocalDateTime ngKetThuc;
+    private Date ngKetThuc;
 
     @Column(name = "diadiem", length = 255, nullable = false)
     private String diaDiem;

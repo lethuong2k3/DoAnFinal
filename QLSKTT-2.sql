@@ -1,4 +1,5 @@
 ﻿CREATE DATABASE QLSKTT
+Go
 USE QLSKTT
 GO
 --Tạo các bảng
@@ -182,29 +183,6 @@ values (N'Nguyễn Thị H', '0567348291', 0, N'505 Đường CDE, Quận EG')
 insert into HuanLuyenVien(TenHLV, SDT, GioiTinh, DiaChi) 
 values (N'Trần Văn I', '0981726354', 1, N'606 Đường GHI, Quận HIJ')
 select * from HuanLuyenVien
-------------------------------------------------------------------------------
---Bảng VĐV
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-values (N'Nguyễn Văn Toàn', '1998-02-13', 1, N'11 Đường 012, Quận 12', '0345445544', 1)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-values (N'Mai Hoàng Bảo Yến', '1989-06-30', 0, N'40 Đường AV, Quận 05', '0905004487', 2)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-values (N'Đỗ Thị Minh Thư', '1990-09-09', 0, N'09 Đường TV, Quận 09', '0389561215', 3)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-values (N'Huỳnh Thanh Tâm', '1984-04-17', 1, N'67 Đường AC, Quận 07', '0987654123', 4)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-values (N'Vũ Văn Long', '1995-01-20', 1, N'22 Đường KH, Quận 10', '0312777409', 5)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-values (N'Lê Bá Khánh Duy', '1998-09-14', 1, N'11 Đường NB, Quận 02', '0998674598', 1)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-VALUES (N'Nguyễn Thanh A', '1999-09-01', 1, N'113 Đường AFC, Quận XYZ', '0908090809', 2)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-VALUES (N'Lý Thị B', '1987-12-01', 0, N'088 Đường DEF, Quận UVW', '0987652521', 3)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-VALUES (N'Phạm Hồng C', '1989-03-13', 1, N'120 Đường GHI, Quận MNO', '0389747123', 4)
-insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
-VALUES (N'Phạm Thiên D', '1990-08-23', 0, N'824 Đường JKL, Quận PQR', '0543217101', 5)
-select * from VanDongVien
 -------------------------------------------------------
 --Bảng DoiThiDau
 insert into DoiThiDau (TenDoi, Email, SoLuongVDV, SoLuongHuyChuong, MaHLV)
@@ -230,6 +208,29 @@ values (N'Đội thi YU','yu@gmail.com', 11, 5, 7)
 insert into DoiThiDau (TenDoi, Email, SoLuongVDV, SoLuongHuyChuong, MaHLV)
 values (N'Đội thi JT', 'jt@gmail.com', 10, 0, 7)
 select * from DoiThiDau
+------------------------------------------------------------------------------
+--Bảng VĐV
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+values (N'Nguyễn Văn Toàn', '1998-02-13', 1, N'11 Đường 012, Quận 12', '0345445544', 1)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+values (N'Mai Hoàng Bảo Yến', '1989-06-30', 0, N'40 Đường AV, Quận 05', '0905004487', 2)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+values (N'Đỗ Thị Minh Thư', '1990-09-09', 0, N'09 Đường TV, Quận 09', '0389561215', 3)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+values (N'Huỳnh Thanh Tâm', '1984-04-17', 1, N'67 Đường AC, Quận 07', '0987654123', 4)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+values (N'Vũ Văn Long', '1995-01-20', 1, N'22 Đường KH, Quận 10', '0312777409', 5)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+values (N'Lê Bá Khánh Duy', '1998-09-14', 1, N'11 Đường NB, Quận 02', '0998674598', 1)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+VALUES (N'Nguyễn Thanh A', '1999-09-01', 1, N'113 Đường AFC, Quận XYZ', '0908090809', 2)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+VALUES (N'Lý Thị B', '1987-12-01', 0, N'088 Đường DEF, Quận UVW', '0987652521', 3)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+VALUES (N'Phạm Hồng C', '1989-03-13', 1, N'120 Đường GHI, Quận MNO', '0389747123', 4)
+insert into VanDongVien (HoTen, NgSinh, GioiTinh, DiaChi,SDT, MaDoi)
+VALUES (N'Phạm Thiên D', '1990-08-23', 0, N'824 Đường JKL, Quận PQR', '0543217101', 5)
+select * from VanDongVien
 ---------------------------------------------------------
 --Bảng MonTheThao
 insert into MonTheThao(TenMon,MoTa)
@@ -554,7 +555,8 @@ as
 begin
     declare @MaVe int, @MaSuKien int
     select @MaVe = MaVe, @MaSuKien = MaSuKien from inserted 
-    if exists(select * from SuKienTheThao, Ve where SuKienTheThao.MaSuKien=Ve.MaSuKien and 	                      MaVe=@MaVe and SuKienTheThao.MaSuKien=@MaSuKien and NgayMua > NgBatDau)
+    if exists(select * from SuKienTheThao, Ve where SuKienTheThao.MaSuKien=Ve.MaSuKien and 
+	                      MaVe=@MaVe and SuKienTheThao.MaSuKien=@MaSuKien and NgayMua > NgBatDau)
     begin
         print N'Ngày mua vé phải sớm hơn ngày bắt đầu sự kiện!'
         rollback transaction
