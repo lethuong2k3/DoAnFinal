@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,4 +24,7 @@ public class BanToChuc {
 
     @Column(name = "tinhthanh", length = 255, nullable = false)
     private String tinhThanh;
+
+    @OneToMany(mappedBy = "banToChuc")
+    private Set<SuKienTheThao> suKienTheThao;
 }

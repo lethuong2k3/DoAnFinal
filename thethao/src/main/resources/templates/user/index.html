@@ -85,39 +85,42 @@
                             </div>
 
                             <div class="item-filter col-12 col-md-3">
-                                <div class="dropdown bootstrap-select form-select"><select class="form-select" id="filter-location">
-                                    <option value="" selected="">- Tất cả địa điểm -</option>
-                                    <option data-subtext="(1)" value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
-                                    <option data-subtext="(1)" value="Bình Dương">Bình Dương</option>
-                                    <option data-subtext="(1)" value="Bình Định">Bình Định</option>
-                                    <option data-subtext="(1)" value="Cần Thơ">Cần Thơ</option>
-                                    <option data-subtext="(4)" value="Hà Nội">Hà Nội</option>
-                                    <option data-subtext="(1)" value="Hải Phòng">Hải Phòng</option>
-                                    <option data-subtext="(3)" value="Hồ Chí Minh">Hồ Chí Minh</option>
-                                    <option data-subtext="(8)" value="Khánh Hòa">Khánh Hòa</option>
-                                    <option data-subtext="(2)" value="Lâm Đồng">Lâm Đồng</option>
-                                    <option data-subtext="(1)" value="Ninh Bình">Ninh Bình</option>
-                                    <option data-subtext="(1)" value="Quảng Nam">Quảng Nam</option>
-                                    <option data-subtext="(1)" value="Quảng Ngãi">Quảng Ngãi</option>
-                                    <option data-subtext="(2)" value="Quảng Ninh">Quảng Ninh</option>
-                                    <option data-subtext="(1)" value="Siem Reap">Siem Reap</option>
-                                    <option data-subtext="(5)" value="Thailand">Thailand</option>
-                                    <option data-subtext="(1)" value="Đài Bắc (Đài Loan)">Đài Bắc (Đài Loan)</option>
-                                    <option data-subtext="(1)" value="Đồng Tháp">Đồng Tháp</option>
-                                </select><button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" title="- Tất cả địa điểm -" data-id="filter-location"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">- Tất cả địa điểm -</div></div> </div></button><div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" placeholder="Chọn địa điểm" role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-1" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+                                <div class="dropdown bootstrap-select form-select">
+                                    <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light"
+                                            data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox"
+                                            aria-expanded="false" title="- Tất cả địa điểm -" data-id="filter-location">
+                                        <!-- Placeholder text for the dropdown -->
+                                        <div class="filter-option">
+                                            <div class="filter-option-inner">
+                                                <div class="filter-option-inner-inner">- Tất cả địa điểm -</div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <!-- Search box within the dropdown -->
+                                        <div class="bs-searchbox">
+                                            <input type="search" class="form-control search-input" autocomplete="off" placeholder="Chọn địa điểm"
+                                                   role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
+                                        </div>
+                                        <!-- Dynamic list options -->
+                                        <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                                            <ul class="dropdown-menu inner show" role="presentation">
+                                                <!-- Thymeleaf loop to dynamically generate options -->
+                                                <li th:each="btc : ${listBTC}" role="option" th:data-value="${btc.tinhThanh}">
+                                                    <!-- Option text -->
+                                                    <a class="dropdown-item" th:text="${btc.tinhThanh}"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="item-filter col-12 col-md-3">
-                                <div class="dropdown bootstrap-select form-select"><select class="form-select" id="filter-begin-time">
-                                    <option value="" selected="">- Thời gian bắt đầu -</option>
-                                    <option data-subtext="(1)" value="06/2024">06/2024</option>
-                                    <option data-subtext="(3)" value="07/2024">07/2024</option>
-                                    <option data-subtext="(6)" value="08/2024">08/2024</option>
-                                    <option data-subtext="(5)" value="09/2024">09/2024</option>
-                                    <option data-subtext="(2)" value="10/2024">10/2024</option>
-                                    <option data-subtext="(7)" value="11/2024">11/2024</option>
-                                    <option data-subtext="(3)" value="12/2024">12/2024</option>
-                                </select><button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" title="- Thời gian bắt đàu -" data-id="filter-begin-time"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">- Thời gian bắt đầu -</div></div> </div></button><div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" placeholder="Chọn thời gian" role="combobox" aria-label="Search" aria-controls="bs-select-2" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-2" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+                                <div class="dropdown bootstrap-select form-select">
+                                </select>
+                                    <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" title="- Thời gian bắt đàu -" data-id="filter-begin-time"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">- Thời gian bắt đầu -</div></div> </div></button>
+                                    <div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" placeholder="Chọn thời gian" role="combobox" aria-label="Search" aria-controls="bs-select-2" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-2" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
                             </div>
 
                             <div class="item-filter col-12 col-md-3">
@@ -656,129 +659,17 @@
 <script src="https://ticket.irace.vn/assets/libs/loadingoverlay/loadingoverlay.min.js"></script>
 <script src="https://ticket.irace.vn/assets/js/bglazyload.js?v=240608"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
-
 <script>
-
-    $.fn.selectpicker.Constructor.BootstrapVersion = '5';
-
-    $(window).on('load', function() {
-
-        $('.lazy-bg').bglazyload();
-
-        var f_type = "latest";
-        var f_locations = "";
-        var f_datetimes = "";
-        var f_catalogs = "";
-
-        if (f_type) {
-            $('.sortby .dropdown-menu .dropdown-item').each(function() {
-                var href = $(this).attr('href');
-                if (href.includes(f_type)) {
-                    const text = $(this).text();
-                    $(this).addClass('blue').removeAttr('href');
-                    $('.sortby .dropdown-toggle').html(`Sắp xếp theo: ${text} <i class="mdi mdi-chevron-down"></i>`);
-                }
+    $(document).ready(function () {
+        // Function to filter dropdown options based on input
+        $(".search-input").on("input", function () {
+            var searchString = $(this).val().toLowerCase();
+            $(this).closest(".dropdown-menu").find(".dropdown-item").each(function () {
+                var optionText = $(this).text().toLowerCase();
+                // Show or hide options based on input match
+                $(this).toggle(optionText.includes(searchString));
             });
-        }
-
-
-        if ($('.container-filter-event').length) {
-
-            $('#filter-location').selectpicker({
-                noneSelectedText: "Chọn địa điểm",
-                liveSearchPlaceholder: "Chọn địa điểm",
-                liveSearch: true,
-                showSubtext: true,
-                noneResultsText: "Không tìm thấy kết quả"
-            });
-
-
-            if (f_catalogs) {
-                $('#filter-location').selectpicker('val', f_catalogs.split('|'));
-            }
-
-            $('#filter-location').on('changed.bs.select', filter);
-
-            $('#filter-begin-time').selectpicker({
-                noneSelectedText: "Thời gian bắt đầu",
-                liveSearchPlaceholder: "Thời gian bắt đầu",
-                liveSearch: true,
-                showSubtext: true,
-                noneResultsText: "Không tìm thấy kết quả"
-            });
-
-            if (f_locations) {
-                // $('#filter-location').selectpicker('val', f_locations.split('|'));
-                $('#filter-begin-time').selectpicker('val', f_locations);
-            }
-
-            $('#filter-begin-time').on('changed.bs.select', filter);
-
-            $('#filter-end-time').selectpicker({
-                noneSelectedText: "Thời gian kết thúc",
-                liveSearchPlaceholder: "Thời gian kết thúc",
-                liveSearch: true,
-                showSubtext: true,
-                noneResultsText: "Không tìm thấy kết quả"
-            });
-
-            if (f_datetimes) {
-                // $('#filter-location').selectpicker('val', f_datetimes.split('|'));
-                $('#filter-end-time').selectpicker('val', f_datetimes);
-            }
-
-            $('#filter-end-time').on('changed.bs.select', filter);
-
-        }
-
+        });
     });
-
-
-    $('.container-filter-event input[name=name]').on('change', filter);
-    $('.container-filter-event input[name=name]').keypress(function(e) {
-        if (e.which == 13) {
-            filter();
-        }
-    });
-
-
-    $('#modal-homepage-banner-ads .btn-close-modal').click(function() {
-        $('#modal-homepage-banner-ads').addClass('d-none');
-    })
-
-
-
-    // $('.container-filter-event .btn-apply').click(filter);
-
-    function filter() {
-        var obj = {};
-
-        var name = $('.container-filter-event input[name=name]').val();
-        if (name) obj.name = name;
-
-        var catalogs = $('#filter-location').val();
-        if (catalogs && catalogs.length) {
-            // obj.catalogs = catalogs.join('|');
-            obj.catalogs = catalogs;
-        }
-
-        var locations = $('#filter-begin-time').val();
-        if (locations && locations.length) {
-            // obj.locations = locations.join('|');
-            obj.locations = locations;
-        }
-
-        var datetimes = $('#filter-end-time').val();
-        if (datetimes && datetimes.length) {
-            // obj.datetimes = datetimes.join('|');
-            obj.datetimes = datetimes;
-        }
-
-        if (location.search != $.param(obj)) {
-            var url = APP_URL + '?' + $.param(obj);
-            window.location.href = url;
-        }
-    }
-
 </script>
 </body></html>
