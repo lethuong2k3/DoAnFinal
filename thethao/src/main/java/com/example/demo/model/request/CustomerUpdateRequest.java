@@ -11,17 +11,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
-
+public class CustomerUpdateRequest {
     private Long maKH;
 
     @NotBlank(message = "Tên khách hàng không được để trống")
     private String tenKhachHang;
 
-    @NotBlank(message = "Tài khoản không được để trống")
-    private String taiKhoan;
-
-    @NotBlank(message = "Mật khẩu không được để trống")
     private String matKhau;
 
     @NotBlank(message = "Số điện thoại không được để trống")

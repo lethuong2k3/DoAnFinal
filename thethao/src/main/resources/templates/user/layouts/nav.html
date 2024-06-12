@@ -101,8 +101,13 @@
                             <span th:text="${#authentication.name}">Username</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownProfile">
-                            <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
-                            <li><a class="dropdown-item" href="#">Danh sách vé</a></li>
+                            <li><a class="dropdown-item" th:href="@{/my-account}">Tài khoản của tôi</a></li>
+                            <li th:if="${#authorization.expression('hasAuthority(''admin'')')}">
+                                <a class="dropdown-item" th:href="@{/admin/tong-quan}">Quản lý sự kiện</a>
+                            </li>
+                            <li th:if="${#authorization.expression('hasAuthority(''user'')')}">
+                                <a class="dropdown-item" th:href="@{/ticket}">Danh sách vé</a>
+                            </li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a></li>
                         </ul>

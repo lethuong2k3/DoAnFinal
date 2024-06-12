@@ -1,0 +1,197 @@
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{user/layouts/header :: headFragment (pageTitle='IE103.O23 SportEvent')}">
+</head>
+
+<body data-layout="horizontal" data-topbar="dark" class="" style="">
+<!-- Begin page -->
+<div id="layout-wrapper" class="ticket-irace-vn-layout">
+    <!--  Header  -->
+    <header th:replace="~{user/layouts/nav.html :: navFragment}"></header>
+
+    <div class="hori-overlay"></div>
+
+    <div class="main-content main-home-page">
+        <div class="page-content">
+            <div class="container wrapper-account profile">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <style>
+                            .profile .name-user {
+                                display: block;
+                                display: -webkit-box;
+                                margin: 0;
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            .profile .content-menu {
+                                padding-left: 24px;
+                            }
+                            .profile .content-menu a {
+                                width: fit-content;
+                                display: block;
+                                color: rgba(0,0,0,.65);
+                                margin-bottom: 10px;
+                            }
+                            .profile .content-menu a:last-child {
+                                margin-bottom: 0;
+                            }
+                            .profile .content-menu a:hover,
+                            .profile .content-menu a.active,
+                            .profile .wrapper-sidebar a.active span {
+                                color: #ee4d2d;
+                            }
+                        </style>
+                        <div class="card wrapper-sidebar">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://ticket.irace.vn/assets/images/user.png" alt="" class="avatar-md rounded-circle img-thumbnail object-fit">
+                                    <div>
+                                        <h6 class="name-user"><strong th:text="${#authentication.name}"></strong></h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <ul class="list-unstyled mb-0 text-muted">
+                                        <li>
+                                            <div class="d-flex align-items-center py-2">
+                                                <a th:classappend="${accountActive == true ? 'active' : ''}" class="text-dark" th:href="@{/my-account}">
+                                                    <i class="mdi mdi-account font-size-16 me-1"></i> <span>Thông tin cá nhân</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex align-items-center py-2">
+                                                <a class="text-dark" th:href="@{/tickets}">
+                                                    <i class="mdi mdi-ticket font-size-16 me-1"></i> <span>Danh sách vé</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr>
+                                <a class="text-muted" href="https://ticket.irace.vn/api/auth/logout">
+                                    <i class="mdi mdi-logout font-size-16 align-middle me-1"></i>
+                                    <span class="align-middle">Đăng xuất</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card">
+                            <h5 class="card-header text-uppercase m-0">Thông tin cá nhân</h5>
+                            <div class="card-body">
+                                <div th:if="${message}" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    Cập nhật tài khoản thành công
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"  aria-label="Close"></button>
+                                </div>
+                                <form id="form-infomation-user" th:action="@{/my-account}" class="m-0" method="post" th:object="${customerRequest}" novalidate>
+                                    <div class="col-lg-8">
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 mb-2 mb-md-0">
+                                                <label class="required m-0">Họ tên:</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input th:field="*{tenKhachHang}" type="text" class="form-control" placeholder="Họ tên" />
+                                                <div th:if="${#fields.hasErrors('tenKhachHang')}" class="text-danger" th:errors="*{tenKhachHang}"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 mb-2 mb-md-0">
+                                                <label class="required m-0">Tài khoản</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" th:value="${#authentication.name}" class="form-edit form-control" disabled />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 mb-2 mb-md-0">
+                                                <label class="required m-0">Số điện thoại:</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="number" th:field="*{sdt}" class="form-edit form-control" />
+                                                <div th:if="${#fields.hasErrors('sdt')}" class="text-danger" th:errors="*{sdt}"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 mb-2 mb-md-0">
+                                                <label class="required m-0">Địa chỉ:</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" th:field="*{diaChi}" class="form-edit form-control" />
+                                                <div th:if="${#fields.hasErrors('diaChi')}" class="text-danger" th:errors="*{diaChi}"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-4 col-md-3">
+                                                <label class="required m-0">Giới tính:</label>
+                                            </div>
+                                            <div class="col-4 col-md-9 d-flex gap-3">
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="radio" th:field="*{gioiTinh}" name="gioiTinh" value="1" id="male" >
+                                                    <label class="form-check-label" for="male">Nam</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" th:field="*{gioiTinh}" name="gioiTinh" value="0" id="female">
+                                                    <label class="form-check-label" for="female">Nữ</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-3 mb-2 mb-md-0">
+                                                <label class="label-password m-0">Đổi Mật khẩu:</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-edit">
+                                                    <input th:field="*{matKhau}" type="password" class="form-control mb-3" placeholder="Mật khẩu hiện tại">
+                                                    <div th:if="${errPassword != null}" class="text-danger"><span th:text="${errPassword}"></span></div>
+                                                    <input th:field="*{matKhauMoi}" type="password" class="form-control mb-3" placeholder="Mật khẩu mới">
+                                                    <div th:if="${errorNewPassword != null}" class="text-danger"><span th:text="${errorNewPassword}"></span></div>
+                                                    <input th:field="*{xacNhanMatKhau}" type="password" class="form-control" placeholder="Xác nhận mật khẩu">
+                                                    <div th:if="${errConfirmPassword != null}" class="text-danger"><span th:text="${errConfirmPassword}"></span></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-9">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-content-save"></i> Lưu lại</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer th:replace="~{user/layouts/footer.html :: footerFragment}"></footer>
+        <a href="javascript:void(0)" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </div>
+
+</div>
+</div><!-- /.modal -->
+<!-- JAVASCRIPT -->
+<script src="https://ticket.irace.vn/assets/libs/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="https://ticket.irace.vn/assets/libs/feather-icons/feather.min.js"></script>
+<script src="https://ticket.irace.vn/assets/js/jquery-3.6.3.min.js"></script>
+<script src="https://ticket.irace.vn/assets/libs/toastr/toastr.min.js"></script>
+<script src="https://ticket.irace.vn/assets/libs/loadingoverlay/loadingoverlay.min.js"></script>
+<script src="https://ticket.irace.vn/assets/js/bglazyload.js?v=240608"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+
+</body></html>
