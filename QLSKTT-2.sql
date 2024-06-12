@@ -9,6 +9,10 @@ CREATE TABLE BanToChuc
     TenBTC NVARCHAR(50) NOT NULL,
     TinhThanh NVARCHAR(255) NOT NULL
 )
+	
+Select * from SuKienTheThao
+
+Select * from Ve join SuKienTheThao on SuKienTheThao.MaSuKien = Ve.MaSuKien
 
 CREATE TABLE SuKienTheThao
 (
@@ -334,7 +338,28 @@ Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
 Values ('PLatinum', '400.000', '2024-04-09', N'Vé đặc biệt', 3, 2, 2)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
 Values ('Cat2', '100.000', '2024-03-19', N'Vé thường', 2, 3, 2)
-select * from Ve
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('VIP', '100.000', '2024-03-19', N'Vé thường', 4, 5, 4)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('VIP', '200.000', '2024-12-01', N'Vé đặc biệt', 5, 4, 3)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2024-12-25', N'Vé thường', 6, 1, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-12-25', N'Vé thường', 5, 1, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-06-15', N'Vé thường', 6, 1, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 7, 3, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 8, 3, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 9, 3, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 10, 3, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 11, 3, 5)
+Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
+Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 12, 4, 5)
 -------------------------------------------
 --Bảng ThamGia
 Insert into ThamGia (MaVDV, MaND, MaSuKien, HuyChuong)

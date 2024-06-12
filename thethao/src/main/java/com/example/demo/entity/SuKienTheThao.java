@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -34,4 +35,7 @@ public class SuKienTheThao {
     @ManyToOne
     @JoinColumn(name = "mabtc", nullable = false)
     private BanToChuc banToChuc;
+
+    @OneToMany(mappedBy = "suKienTheThao", cascade = CascadeType.ALL)
+    private Set<Ve> ves;
 }

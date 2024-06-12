@@ -117,23 +117,11 @@
                             </div>
 
                             <div class="item-filter col-12 col-md-3">
-                                <div class="dropdown bootstrap-select form-select">
-                                </select>
-                                    <button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" title="- Thời gian bắt đàu -" data-id="filter-begin-time"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">- Thời gian bắt đầu -</div></div> </div></button>
-                                    <div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" placeholder="Chọn thời gian" role="combobox" aria-label="Search" aria-controls="bs-select-2" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-2" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+                                <input class="form-control" id="datepicker1" placeholder="- Thời gian bắt đầu -" width="250" />
                             </div>
 
                             <div class="item-filter col-12 col-md-3">
-                                <div class="dropdown bootstrap-select form-select"><select class="form-select" id="filter-end-time">
-                                    <option value="" selected="">- Thời gian kết thúc -</option>
-                                    <option data-subtext="(1)" value="06/2024">06/2024</option>
-                                    <option data-subtext="(3)" value="07/2024">07/2024</option>
-                                    <option data-subtext="(6)" value="08/2024">08/2024</option>
-                                    <option data-subtext="(5)" value="09/2024">09/2024</option>
-                                    <option data-subtext="(2)" value="10/2024">10/2024</option>
-                                    <option data-subtext="(7)" value="11/2024">11/2024</option>
-                                    <option data-subtext="(3)" value="12/2024">12/2024</option>
-                                </select><button type="button" tabindex="-1" class="btn dropdown-toggle bs-placeholder btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-3" aria-haspopup="listbox" aria-expanded="false" title="- Thời gian kết thúc -" data-id="filter-end-time"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">- Thời gian kết thúc -</div></div> </div></button><div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" placeholder="Chọn thời gian" role="combobox" aria-label="Search" aria-controls="bs-select-3" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-3" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+                                <input class="form-control" id="datepicker2" placeholder="- Thời gian kết thúc -" width="250" />
                             </div>
 
 
@@ -160,7 +148,40 @@
 
                     <div class="card-body">
                         <div class="row list-events">
-                            <div class="col-12 text-center">Không có dữ liệu</div>
+                            <div th:each="sktt: ${listSKTT}" class="col-12 col-lg-4 col-sm-6 wrap-item-event">
+                                <!-- Simple card -->
+                                <div class="card item-event">
+
+                                    <a href="https://ticket.irace.vn/color-run-ecolakes-2024" class="card-img-top bg-cover lazy-bg loaded" style="background-image: url(&quot;https://irace-web.s3.ap-southeast-1.amazonaws.com/photos/events/2024/05/23/event-color-run-ecolakes-2024-thumb.jpeg?v=164556&quot;);" data-bgimg="https://irace-web.s3.ap-southeast-1.amazonaws.com/photos/events/2024/05/23/event-color-run-ecolakes-2024-thumb.jpeg?v=164556"></a>
+
+                                    <div class="container-badge">
+                                        <img src="https://ticket.irace.vn/assets/images/badge/new.png" alt="new">
+                                    </div>
+
+                                    <div class="card-body">
+                                        <h3>
+                                            <a th:text="${sktt.tenSuKien}" href="#" class="card-title"></a>
+                                        </h3>
+
+                                        <div class="card-info">
+                                            <div th:text="${sktt.ngBatDau}" class="item-info"><i class="bx bx-calendar"></i></div>
+                                            <div th:text="${sktt.banToChuc.tinhThanh}" class="item-info"><i class="bx bx-map-pin"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+
+                                            <span class="price">Từ <span class="text text-blue" th:text="${sktt.ves[0].giaVe}"></span></span>
+
+
+                                        <a href="https://ticket.irace.vn/color-run-ecolakes-2024" class="btn btn-primary">
+                                            Đăng ký ngay
+                                        </a>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -654,7 +675,6 @@
 <!-- JAVASCRIPT -->
 <script src="https://ticket.irace.vn/assets/libs/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="https://ticket.irace.vn/assets/libs/feather-icons/feather.min.js"></script>
-<script src="https://ticket.irace.vn/assets/js/jquery-3.6.3.min.js"></script>
 <script src="https://ticket.irace.vn/assets/libs/toastr/toastr.min.js"></script>
 <script src="https://ticket.irace.vn/assets/libs/loadingoverlay/loadingoverlay.min.js"></script>
 <script src="https://ticket.irace.vn/assets/js/bglazyload.js?v=240608"></script>
@@ -670,6 +690,12 @@
                 $(this).toggle(optionText.includes(searchString));
             });
         });
+    });
+    $('#datepicker1').datepicker({
+        uiLibrary: 'bootstrap5'
+    });
+    $('#datepicker2').datepicker({
+        uiLibrary: 'bootstrap5'
     });
 </script>
 </body></html>
