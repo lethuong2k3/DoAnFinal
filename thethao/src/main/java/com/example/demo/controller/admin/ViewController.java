@@ -13,13 +13,13 @@ public class ViewController {
 
     @GetMapping("/admin/tong-quan")
     public String viewLogin(Model model) {
-        model.addAttribute("activePage", "dashboard");
+        model.addAttribute("activeDashboard", true);
         return "/admin/index";
     }
 
-    @GetMapping("/admin/khoa-hoc")
+    @GetMapping("/admin/ban-to-chuc")
     public String course(Model model) {
-        model.addAttribute("activePageDrop", "course");
+        model.addAttribute("activeBTC", true);
         return "/admin/course";
     }
 

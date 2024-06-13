@@ -16,13 +16,14 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a th:href="@{/admin/tong-quan}" class="nav-item nav-link" th:classappend="${activePage == 'dashboard' ? 'active' : ''}"><i class="bi bi-bar-chart-line-fill me-2"></i>Thống kê</a>
+            <a th:href="@{/admin/tong-quan}" class="nav-item nav-link" th:classappend="${activeDashboard == true ? 'active' : ''}"><i class="bi bi-bar-chart-line-fill me-2"></i>Thống kê</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" th:classappend="${activePageDrop != null ? 'active' : ''}" data-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Quản lý danh mục</a>
+                <a href="#" class="nav-link dropdown-toggle" th:classappend="${activeBTC == true  ? 'active' : ''}" data-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Quản lý danh mục</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="#" class="dropdown-item">Quản lý khách hàng</a>
-                    <a href="#" class="dropdown-item">Quản lý sự kiện</a>
-                    <a href="#" class="dropdown-item">Quản lý vé</a>
+                    <a href="#" class="dropdown-item">Khách hàng</a>
+                    <a href="#" class="dropdown-item">Sự kiện</a>
+                    <a href="#" class="dropdown-item">Vé</a>
+                    <a th:href="@{/admin/ban-to-chuc}" th:classappend="${activeBTC == true  ? 'active' : ''}" class="dropdown-item">Ban tổ chức</a>
                 </div>
             </div>
             <a href="table.html" class="nav-item nav-link"><i class="bi bi-question-circle-fill me-2"></i>Câu hỏi thường gặp</a>

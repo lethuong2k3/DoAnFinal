@@ -10,9 +10,6 @@ CREATE TABLE BanToChuc
     TinhThanh NVARCHAR(255) NOT NULL
 )
 	
-Select * from SuKienTheThao
-
-Select * from Ve join SuKienTheThao on SuKienTheThao.MaSuKien = Ve.MaSuKien
 
 CREATE TABLE SuKienTheThao
 (
@@ -329,37 +326,37 @@ select * from NguoiDung
 ---------------------------------------------------------------------
 --Bảng Ve
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('VIP', '500.000', '2024-05-01', N'Vé đặc biệt', 1, 2, 2)
+Values ('VIP', '500000', '2024-05-01', N'Vé đặc biệt', 1, 2, 2)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '100.000', '2024-07-15', N'Vé thường', 1, 2, 3)
+Values ('Cat1', '100000', '2024-07-15', N'Vé thường', 1, 2, 3)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('PLatinum', '300.000', '2024-09-26', N'Vé đặc biệt', 2, 3, 1)
+Values ('PLatinum', '300000', '2024-09-26', N'Vé đặc biệt', 2, 3, 1)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('PLatinum', '400.000', '2024-04-09', N'Vé đặc biệt', 3, 2, 2)
+Values ('PLatinum', '400000', '2024-04-09', N'Vé đặc biệt', 3, 2, 2)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat2', '100.000', '2024-03-19', N'Vé thường', 2, 3, 2)
+Values ('Cat2', '100000', '2024-03-19', N'Vé thường', 2, 3, 2)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('VIP', '100.000', '2024-03-19', N'Vé thường', 4, 5, 4)
+Values ('VIP', '100000', '2024-03-19', N'Vé thường', 4, 5, 4)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('VIP', '200.000', '2024-12-01', N'Vé đặc biệt', 5, 4, 3)
+Values ('VIP', '200000', '2024-12-01', N'Vé đặc biệt', 5, 4, 3)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2024-12-25', N'Vé thường', 6, 1, 5)
+Values ('Cat1', '150000', '2024-12-25', N'Vé thường', 6, 1, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-12-25', N'Vé thường', 5, 1, 5)
+Values ('Cat1', '150000', '2023-12-25', N'Vé thường', 5, 1, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-06-15', N'Vé thường', 6, 1, 5)
+Values ('Cat1', '150000', '2023-06-15', N'Vé thường', 6, 1, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 7, 3, 5)
+Values ('Cat1', '150000', '2023-08-18', N'Vé thường', 7, 3, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 8, 3, 5)
+Values ('Cat1', '150000', '2023-08-18', N'Vé thường', 8, 3, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 9, 3, 5)
+Values ('Cat1', '150000', '2023-08-18', N'Vé thường', 9, 3, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 10, 3, 5)
+Values ('Cat1', '150000', '2023-08-18', N'Vé thường', 10, 3, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 11, 3, 5)
+Values ('Cat1', '150000', '2023-08-18', N'Vé thường', 11, 3, 5)
 Insert into Ve (LoaiVe, GiaVe, NgayMua, GhiChu, MaSuKien, MaBTC, MaKh)
-Values ('Cat1', '150.000', '2023-08-18', N'Vé thường', 12, 4, 5)
+Values ('Cat1', '150000', '2023-08-18', N'Vé thường', 12, 4, 5)
 -------------------------------------------
 --Bảng ThamGia
 Insert into ThamGia (MaVDV, MaND, MaSuKien, HuyChuong)
